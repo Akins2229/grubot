@@ -1,5 +1,6 @@
 import discord
 from discord.ext import commands
+from time import localtime, strftime
 
 intents = discord.Intents.all()
 bot = commands.Bot(intents=intents, command_prefix=']')
@@ -36,6 +37,8 @@ async def on_message(msg):
 async def say(ctx, *, message):
     await ctx.message.delete()
     await ctx.send(message)
+    print(f"{ctx.message.author} - {message} : " + strftime("%Y-%m-%d %H:%M:%S", localtime()))
+
 
 @bot.command()
 async def secretcoms(ctx):
