@@ -110,6 +110,7 @@ async def source(ctx):
 @bot.command()
 async def github(ctx):
     await ctx.message.delete()
-    embed = discord.Embed(title="GruBot Github Repo", url='
+    embed = discord.Embed(title="GruBot Github Repo", url='https://github.com/Vigilantly-2328/grubot')
+    await ctx.message.author.send(embed=embed)
     
 bot.run(token)
