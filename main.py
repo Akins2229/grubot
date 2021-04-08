@@ -93,4 +93,4 @@ async def help(ctx, *, choice=None):
         embed.add_field(name="say", value="Makes the bot say a user inputted message, this is moderated dont get stupid.", inline=False)
         await ctx.send(embed=embed)
 
-bot.run("ODI5MTEwMDMwNzM2OTQ5Mjk4.YGzW4w.XUO2xjfEO5dy2ySxUDFYbzIXR7Y")
+bot.run(token)
