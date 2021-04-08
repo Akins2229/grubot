@@ -98,4 +98,4 @@ async def music(ctx):
         embe.add_field(name="loop", value="Loops the current song", inline=False)
         await ctx.send(embed=embe)
 
-bot.run("ODI5MTEwMDMwNzM2OTQ5Mjk4.YGzW4w.X_iAPKKX7y1yph6RwGnXtt5bV14")
+bot.run(token)
