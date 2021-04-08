@@ -57,7 +57,7 @@ class Fun(commands.Cog):
     #The following command makes the bot say a user inputted message, with a failsafe to ensure that it isn't abused#
     @commands.command(name='say')
     async def _say(self, ctx, *, message):
-        await ctx.message.delete
+        await ctx.message.delete()
         await ctx.send(message)
         print(f"{ctx.message.author} - {message} : " + strftime("%Y-%m-%d %H:%M:%S", localtime()))
 
