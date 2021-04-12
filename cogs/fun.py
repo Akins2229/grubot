@@ -3,6 +3,9 @@ import discord
 from discord.ext import commands
 import time
 from time import localtime, strftime
+import pokepy
+
+client = pokepy.V2Client()
 
 #The following code defines the Fun class as a discord cog#
 class Fun(commands.Cog):
@@ -54,6 +57,25 @@ class Fun(commands.Cog):
       embed.add_field(name="Users:", value=ctx.guild.member_count, inline=False)
       embed.add_field(name="Channels:", value=len(ctx.guild.channels), inline=False)
       await ctx.send(embed=embed)
+    
+    #The following code allows users to get information about a pokemon#
+    @commands.command(name='pokemon')
+    async def _pokemon(self, ctx, pokemon):
+        poke = client.get_pokemon(pokemon)
+        name = poke.name
+        weight = poke.weight
+        type = poke.types[0].type.name
+        height= poke.height
+        color = client.get_pokemon_color(pokemon)
+        species = client.get_pokemon_species(pokemon)
+        embed = discord.Embed(title=f"{poke} Stats!", description=f"Requested by {ctx.message.author.name}", color = discord.Colour.magenta())
+        embed.add_field(name="Pokemon:", value=name)
+        embed.add_field(name="Type:", value=type)
+        embed.add_field(name="Color:", value=color)
+        embed.add_field(name="Weight:", value=weight)
+        embed.add_field(name="Height:", value=height)
+        embed.add_field(name="Species:", value=species)
+        await ctx.send(embed=embed)
 
    
         
