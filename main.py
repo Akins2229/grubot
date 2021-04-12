@@ -7,7 +7,6 @@ initial_extensions = ['cogs.moderation', 'cogs.fun', 'cogs.music']
 intents = discord.Intents.all()
 bot = commands.Bot(intents=intents, command_prefix=']')
 bot.remove_command('help')
-messagecounts = {}
 
 if __name__ == '__main__':
     for extension in initial_extensions:
@@ -41,14 +40,10 @@ async def on_message(msg):
         message = pog.replace('gru', 'Gru*')
         await msg.delete()
         await channel.send(f"{author.mention} - {message}")
-    if msg.guild.id not in messagecounts.keys():
-        messagecounts[msg.guild.id] = 0
-    messagecounts[msg.guild.id] += 1
-    await bot.process_commands(msg)
 
 @bot.group(invoke_without_command=True)
 async def help(ctx):
-        embed=discord.Embed(title="GruBot V.2 Help Command", url="https://discord.com/oauth2/authorize?client_id=829110030736949298&scope=bot&permissions=8", description="The help command for GruBot V.2")
+        embed=discord.Embed(title="GruBot 3.0.0 Help Command", url="https://discord.com/oauth2/authorize?client_id=829110030736949298&scope=bot&permissions=8", description="The help command for GruBot V.2")
         embed.set_author(name="Akins", icon_url="https://cdn.discordapp.com/avatars/707643377621008447/8e56c7abb270316601cc1fc0f9c8c06a.png?size=1024")
         embed.add_field(name="Help", value="Displays this command", inline=False)
         embed.add_field(name="Moderation", value="Displays the moderation help page", inline=False)
@@ -58,7 +53,7 @@ async def help(ctx):
 
 @help.command()
 async def moderation(ctx):
-        em=discord.Embed(title="GruBot V.2 Moderation Help Command", url="https://discord.com/oauth2/authorize?client_id=829110030736949298&scope=bot&permissions=8", description="The moderation help command for GruBot V.2")
+        em=discord.Embed(title="GruBot 3.0.0 Moderation Help Command", url="https://discord.com/oauth2/authorize?client_id=829110030736949298&scope=bot&permissions=8", description="The moderation help command for GruBot V.2")
         em.set_author(name="Akins", icon_url="https://cdn.discordapp.com/avatars/707643377621008447/8e56c7abb270316601cc1fc0f9c8c06a.png?size=1024")
         em.add_field(name="ban", value="Bans a specific user", inline=False)
         em.add_field(name="kick", value="Kicks a certain user", inline=False)
@@ -73,21 +68,19 @@ async def moderation(ctx):
 
 @help.command()
 async def fun(ctx):
-        emb=discord.Embed(title="GruBot V.2 Fun Help Command", url="https://discord.com/oauth2/authorize?client_id=829110030736949298&scope=bot&permissions=8", description="The music fun command for GruBot V.2")
+        emb=discord.Embed(title="GruBot 3.0.0 Fun Help Command", url="https://discord.com/oauth2/authorize?client_id=829110030736949298&scope=bot&permissions=8", description="The music fun command for GruBot V.2")
         emb.set_author(name="Akins", icon_url="https://cdn.discordapp.com/avatars/707643377621008447/8e56c7abb270316601cc1fc0f9c8c06a.png?size=1024")
         emb.add_field(name="ping", value="Returns pong", inline=False)
-        emb.add_field(name="wren", value="Gives information about Wren", inline=False)
-        emb.add_field(name="duckbot", value="Gives information about DuckBot", inline=False)
-        emb.add_field(name="akins", value="Gives information about Akins", inline=False)
-        emb.add_field(name="sex", value="You engage in sexual intercourse with Gru", inline=False)
         emb.add_field(name="source", value="Displays a link to the source code on repl.it", inline=False)
-        emb.add_field(name="github", value="Displays a link to the source code on github, also available through Akins' connections page ", inline=False)
+        emb.add_field(name="github", value="Displays a link to the source code on github, also available through Akins' connections page (If you're in a server with them) ", inline=False)
         emb.add_field(name="say", value="Makes the bot say a user inputted message, this is moderated dont get stupid.", inline=False)
+        emb.add_field(name="serverstats", value="Displays statistics for the server")
+        emb.add_field(name="holiday", value="Displays a holiday, and important piece of news for today")
         await ctx.send(embed=emb)
 
 @help.command()
 async def music(ctx):
-        embe=discord.Embed(title="GruBot V.2 Music Help Command", url="https://discord.com/oauth2/authorize?client_id=829110030736949298&scope=bot&permissions=8", description="The music help command for GruBot V.2")
+        embe=discord.Embed(title="GruBot 3.0.1 Music Help Command", url="https://discord.com/oauth2/authorize?client_id=829110030736949298&scope=bot&permissions=8", description="The music help command for GruBot V.2")
         embe.set_author(name="Akins", icon_url="https://cdn.discordapp.com/avatars/707643377621008447/8e56c7abb270316601cc1fc0f9c8c06a.png?size=1024")
         embe.add_field(name="join", value="Makes the bot join your voice channel", inline=False)
         embe.add_field(name="summon", value="Summons the bot to your voice channel if it is in another channel", inline=False)
