@@ -18,7 +18,7 @@ class Fun(commands.Cog):
     @commands.command(name='source')
     async def _source(self, ctx):
         await ctx.message.delete()
-        embed = discord.Embed(title="Source Code", url='https://replit.com/join/tacbunfb-pewdrip')
+        embed = discord.Embed(title="Source Code", url='https://replit.com/@pewdrip/GruBot-300?v=1')
         await ctx.message.author.send(embed=embed)
     
     #The following command links the github repository for the bot#
@@ -35,18 +35,18 @@ class Fun(commands.Cog):
         await ctx.send(message)
         print(f"{ctx.message.author} - {message} : " + strftime("%Y-%m-%d %H:%M:%S", localtime()))
    
-   #The following code adds a holiday command#
-   @commands.command(name='holiday')
-   async def _holiday(self, ctx):
+    #The following code adds a holiday command#
+    @commands.command(name='holiday')
+    async def _holiday(self, ctx):
       await ctx.message.delete()
       embed = discord.Embed(title="Holiday's for today!", description="12/4/21", color=discord.Colour.magenta())
       embed.add_field(name="National Grilled Cheese Sandwich Day:", value="Today is national grilled cheese sandwich day! Make yourself some of that crisy, cheesy, goodness.")
       embed.add_field(name="In other, much more important news.", value="Iran has promised 'revenge' after a supposed Isreali attack on the Natanz uranium enrichment plant. This could mean possible nuclear war, although given Iran's current nuclear stance after the 2012 Nuclear deal, it doesn't seem likely. I however, don't doubt that if an attack is made on Israel, the U.S. will attack.")
       await ctx.send(embed=embed)
    
-   #The following code displays basic server statistics#
-   @commands.command(name='serverstats')
-   async def _serverstats(self, ctx):
+    #The following code displays basic server statistics#
+    @commands.command(name='serverstats')
+    async def _serverstats(self, ctx):
       user = ctx.message.author
       avatar = user.avatar_url
       embed=discord.Embed(description=f"Requested by - {ctx.message.author}", color=discord.Colour.magenta())
