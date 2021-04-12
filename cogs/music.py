@@ -1,4 +1,12 @@
-#The following codd imports the essential modules#
+"""
+
+Copyright (c) 2019 Valentin B.
+The code below was written by Valentin B. (github user @vbe0201)
+it was annottated by Akins(Vigilantly-2328)
+
+"""
+
+#The following code imports the essential modules#
 import asyncio
 import functools
 import itertools
@@ -13,11 +21,11 @@ from discord.ext import commands
 #The following code silences useless bug report messages#
 youtube_dl.utils.bug_reports_message = lambda: ''
 
-#The following creates the class VoiceError to pass#
+#The following tells the exception VoiceError to pass#
 class VoiceError(Exception):
     pass
 
-#The following creates the class YTDLError to pass#
+#The following tells the exception YTDLError to pass#
 class YTDLError(Exception):
     pass
 
