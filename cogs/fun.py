@@ -45,9 +45,9 @@ class Fun(commands.Cog):
     @commands.command(name='holiday')
     async def _holiday(self, ctx):
       await ctx.message.delete()
-      embed = discord.Embed(title="Holiday's for today!", description="12/4/21", color=discord.Colour.magenta())
-      embed.add_field(name="National Grilled Cheese Sandwich Day:", value="Today is national grilled cheese sandwich day! Make yourself some of that crisy, cheesy, goodness.")
-      embed.add_field(name="In other, much more important news.", value="Iran has promised 'revenge' after a supposed Isreali attack on the Natanz uranium enrichment plant. This could mean possible nuclear war, although given Iran's current nuclear stance after the 2012 Nuclear deal, it doesn't seem likely. I however, don't doubt that if an attack is made on Israel, the U.S. will attack.")
+      embed = discord.Embed(title="Holiday's for today!", description="13/4/21", color=discord.Colour.magenta())
+      embed.add_field(name="National Grilled Cheese Sandwich Day:", value="Today is national Peach Cobbler day, If you like Ice Cream, Peaches, and Cobbler, today is the day for you.")
+      embed.add_field(name="In other, much more important news.", value="Today President Biden has announced that he will decide whether or not to Withdraw U.S. troops from Afghanistan.")
       await ctx.send(embed=embed)
    
     #The following code displays basic server statistics#
