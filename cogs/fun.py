@@ -3,9 +3,12 @@ import discord
 from discord.ext import commands
 import time
 from time import localtime, strftime
-import pokepy
+import requests
+import json
+import async_pokepy
+import asyncio
 
-client = pokepy.V2Client()
+client = await async_pokepy.connect()
 
 #The following code defines the Fun class as a discord cog#
 class Fun(commands.Cog):
@@ -16,7 +19,7 @@ class Fun(commands.Cog):
     @commands.command(name='ping')
     async def _ping(ctx):
         await ctx.send("pong")
-    
+   
     #The following command links the repl.it source code for the bot#
     @commands.command(name='source')
     async def _source(self, ctx):
@@ -61,21 +64,20 @@ class Fun(commands.Cog):
     #The following code allows users to get information about a pokemon#
     @commands.command(name='pokemon')
     async def _pokemon(self, ctx, pokemon):
-        poke = client.get_pokemon(pokemon)
-        name = poke.name
-        weight = poke.weight
-        type = poke.types[0].type.name
-        height= poke.height
-        color = client.get_pokemon_color(pokemon)
-        species = client.get_pokemon_species(pokemon)
-        embed = discord.Embed(title=f"{poke} Stats!", description=f"Requested by {ctx.message.author.name}", color = discord.Colour.magenta())
-        embed.add_field(name="Pokemon:", value=name)
-        embed.add_field(name="Type:", value=type)
-        embed.add_field(name="Color:", value=color)
-        embed.add_field(name="Weight:", value=weight)
-        embed.add_field(name="Height:", value=height)
-        embed.add_field(name="Species:", value=species)
-        await ctx.send(embed=embed)
+			    try:
+                    result = await client.get_pokemon(pokemon)
+                except async_pokepy.NotFound:
+                    fuzzy = await client.get_pagination("pokemon", limit=800).find_similar(name)
+
+                    if not fuzzy:
+                        await ctx.send("No Pokémon found by name {0}.".format(name))
+                    else:
+                        result = fuzzy[0]  #  The first result is always the most accurate.
+                        await ctx.send("No Pokémon found by name {0}, did you mean {1}?".format(name, result))
+                else:
+                    await ctx.send("Found {0} which has {1} abilities and {2} moves!"
+            .format(result, len(result.abilities), len(result.moves)))
+			
 
    
         
