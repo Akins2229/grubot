@@ -1,4 +1,4 @@
-# GruBot 3.0.0
+# GruBot 3.1.1
 GruBot is an open-source discord bot to provide basic services to my friends discord server. If I had a reliable host I would provide a link to invite the bot to your own servers, but alas, I do not. 
 
 # Installation
